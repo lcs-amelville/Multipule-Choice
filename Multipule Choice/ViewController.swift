@@ -41,11 +41,11 @@ class ViewController: UIViewController {
         
         
         guard let studentAnswer = studentsAnswersTextField.text, studentAnswer.count == intQuestionNumber else {
-            textOutputTextView.text = "Please set this to the same value as questions in the text."
+            textOutputTextView.text = "Please set this to the value of questions of \(intQuestionNumber)."
             return
         }
         
-        guard let correctAnswer = correctAnswersTextField.text, correctAnswer.count == intQuestionNumber else { return textOutputTextView.text = "Please enter the Number of Questions" }
+        guard let correctAnswer = correctAnswersTextField.text, correctAnswer.count == intQuestionNumber else { return textOutputTextView.text = "Please enter the Number of Questions the same as student questions and total questions\(intQuestionNumber)" }
     
         var totalCorrectAnswer = 0
        
