@@ -51,16 +51,19 @@ class ViewController: UIViewController {
        
         
         
-        for (position, singleCharacters) in studentAnswer.enumerated() {
+        for (position, singleCharacters) in correctAnswer.enumerated() {
           
-            let index = position
+            let index = studentAnswer.index(studentAnswer.startIndex, offsetBy: position)
             
             
-            if studentAnswer.index(studentAnswer.startIndex, offsetBy: 0) == correctAnswer.index(correctAnswer.startIndex, offsetBy: 0) {
+            if  singleCharacters == studentAnswer[index] {
                 totalCorrectAnswer += 1
             }
             
         }
+        
+        textOutputTextView.text = "The number the student go right is \(totalCorrectAnswer) questions."
+        
     }
     
     
