@@ -9,12 +9,67 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //Outlets
+    
+    
+    @IBOutlet weak var howManyQuestionsTextField: UITextField!
+    
+    @IBOutlet weak var studentsAnswersTextField: UITextField!
+    
+    @IBOutlet weak var correctAnswersTextField: UITextField!
+    
+    @IBOutlet weak var textOutputTextView: UITextView!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+//Actions
+    
+    
+    @IBAction func checkIfStudentsAreCorrectButton(_ sender: Any) {
+        
+        
+        guard let questionNumber = howManyQuestionsTextField.text, questionNumber.count > 0, let intQuestionNumber = Int(questionNumber) else {
+            textOutputTextView.text = "Please enter the Number of Questions"
+            return
+        }
+        
+        
+        guard let studentAnswer = studentsAnswersTextField.text, studentAnswer.count == intQuestionNumber else {
+            textOutputTextView.text = "Please set this to the same value as questions in the text."
+            return
+        }
+        
+        guard let correctAnswer = correctAnswersTextField.text, correctAnswer.count == intQuestionNumber else { return textOutputTextView.text = "Please enter the Number of Questions" }
+    
+        var totalCorrectAnswer = 0
+       
+        
+        
+        for (position, singleCharacters) in studentAnswer.enumerated() {
+          
+            let index = position
+            
+            
+            if studentAnswer.index(studentAnswer.startIndex, offsetBy: 0) == correctAnswer.index(correctAnswer.startIndex, offsetBy: 0) {
+                totalCorrectAnswer += 1
+            }
+            
+        }
+    }
+    
+    
+    
+    // studentAnswer.index(sutedentAnswer.startIndex, offsetBy: 0)
+              
+    
+    
+    
+    
 }
 
