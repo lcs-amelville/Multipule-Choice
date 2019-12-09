@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     @IBAction func checkIfStudentsAreCorrectButton(_ sender: Any) {
         
-        
+        //Guard against all the required things... could add ABCDE only characters.
         guard let questionNumber = howManyQuestionsTextField.text, questionNumber.count > 0, let intQuestionNumber = Int(questionNumber) else {
             textOutputTextView.text = "Please enter the Number of Questions"
             return
@@ -45,8 +45,10 @@ class ViewController: UIViewController {
             return
         }
         
-        guard let correctAnswer = correctAnswersTextField.text, correctAnswer.count == intQuestionNumber else { return textOutputTextView.text = "Please enter the Number of Questions the same as student questions and total questions\(intQuestionNumber)" }
+        guard let correctAnswer = correctAnswersTextField.text, correctAnswer.count == intQuestionNumber else { return textOutputTextView.text = "Please enter the Number of Questions the same as student questions and total questions \(intQuestionNumber)" }
+        
     
+    //Find total Correct
         var totalCorrectAnswer = 0
        
         
@@ -62,7 +64,7 @@ class ViewController: UIViewController {
             
         }
         
-        textOutputTextView.text = "The number the student go right is \(totalCorrectAnswer) questions."
+        textOutputTextView.text = "The number the student got right is \(totalCorrectAnswer) questions."
         
     }
     
